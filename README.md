@@ -1,11 +1,13 @@
-# StarboxIo2023
+# StarboxIo2025
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+This is a front end part of a code challange to build a barista application. It was for developers applying to my previous company.
 
-# dmb 
-I add - "strictPropertyInitialization": false - to the tsconfig.json to prevent build errors
-run 'ng build' and 'ng serve'
-# dmb
+I used it to learn and practice technologies like AngularJS and then Angular.io.
+
+This Angular version uses a .NET backend WebAPI and Sql Server. It uses template forms and reactive forms in various components. It uses RxJS to communicate with the back end.
+
+The backend can be found in this repository:
+https://github.com/dougbean/StarboxNet8CoreApiEF
 
 ## Development server
 
