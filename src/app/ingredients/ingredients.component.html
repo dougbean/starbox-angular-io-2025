@@ -1,0 +1,45 @@
+<h3>Available Ingredients</h3>   
+<div class="">
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>Ingredient</th>
+              <th>Unit Cost</th> 
+              <th>Quantity On Hand</th>  
+              <th>Edit</th>              
+              <th>Delete</th>                         
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let ingredient of ingredients">
+              <td>{{ ingredient?.name }}</td>
+              <td>{{ ingredient?.unitCost | currency}}</td>
+              <td>{{ ingredient?.amount }}</td>               
+               <td>               
+                 <nav>
+                    <a [routerLink]="['/edit-ingredient']" [state]="{ingredient}">Edit Ingredient</a>
+                 </nav>                
+               </td>                          
+              <td><button type="button" class="btn btn-danger" (click)="onDelete(ingredient.id)">Delete Ingredient</button></td>
+          </tr>
+      </tbody>
+  </table>  
+  <div class="container">
+    <form (ngSubmit)="onSubmit()">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label for="name" class="form-label">specify amount for ingredients restock</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" id="name" [(ngModel)]="amount" name="name" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <button type="submit" class="btn btn-primary">Restock</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>

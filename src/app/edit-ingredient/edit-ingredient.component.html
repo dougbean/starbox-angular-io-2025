@@ -1,0 +1,72 @@
+<div class="container">
+    <h2>Edit Ingredient</h2>  
+    <form #ingredientForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="name">Ingredient Name:</label>
+        </div>
+        <div class="col-md-8">
+          <input
+            id="name"
+            name="name"
+            [(ngModel)]="ingredient.name"
+            type="text"
+            class="form-control"
+            required
+            #name="ngModel"
+          />
+          <div *ngIf="name.touched && name.invalid" class="error text-danger">
+            Name is required.
+          </div>
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="unitCost">Unit Cost:</label>
+        </div>
+        <div class="col-md-8">
+          <input
+            id="unitCost"
+            name="unitCost"
+            [(ngModel)]="ingredient.unitCost"
+            type="number"
+            class="form-control"
+            required
+            min="0"
+            #unitCost="ngModel"
+          />
+          <div *ngIf="unitCost.touched && unitCost.invalid" class="error text-danger">
+            Unit cost must be a positive number.
+          </div>
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="amount">Amount in Inventory:</label>
+        </div>
+        <div class="col-md-8">
+          <input
+            id="amount"
+            name="amount"
+            [(ngModel)]="ingredient.amount"
+            type="number"
+            class="form-control"
+            required
+            min="0"
+            #amount="ngModel"
+          />
+          <div *ngIf="amount.touched && amount.invalid" class="error text-danger">
+            Amount must be a positive number.
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary" [disabled]="ingredientForm.invalid">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>

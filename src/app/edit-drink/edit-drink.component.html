@@ -1,0 +1,56 @@
+<form [formGroup]="drinkForm" (ngSubmit)="onSubmit()">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="name">Drink Name: </label>
+        <input id="name" type="text" class="form-control" formControlName="name">
+        <div *ngIf="drinkForm.get('name')?.invalid && drinkForm.get('name')?.touched" class="text-danger">
+          Name is required.
+        </div>
+      </div>
+    </div>
+  
+    <div formArrayName="ingredients">
+      <div *ngFor="let group of ingredients.controls; let i = index" [formGroupName]="i" class="row mb-3">
+        <div class="col-md-5">
+          <label for="id">Ingredient:</label>
+          <select formControlName="id" class="form-control" (change)="onOptionsSelected($event)">
+            <option  value="" selected disabled>Select Ingredient</option> 
+            <option *ngFor="let ingredient of ingredientList" [value]="ingredient.id">
+              {{ ingredient.name }}
+            </option>
+          </select>
+        </div>
+  
+        <div class="col-md-5">
+          <label for="quantity">Quantity:</label>
+          <input id="quantity" formControlName="quantity" type="number" min="1" class="form-control">
+          <div *ngIf="group.get('quantity')?.invalid" class="text-danger">
+            Valid quantity is required.
+          </div>
+        </div>
+  
+        <div class="col-md-2 d-flex align-items-center">
+          <button type="button" class="btn btn-danger" (click)="removeIngredientControlGroup(i)">Remove</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <button type="button" class="btn btn-secondary" (click)="addIngredientControlGroup()">Add Ingredient</button>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-primary" [disabled]="drinkForm.invalid">Submit</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <br/>
+        <h3>{{message}}</h3>
+      </div>
+    </div>
+  </form>
+

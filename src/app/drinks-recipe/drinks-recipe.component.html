@@ -1,0 +1,45 @@
+<h3>Available drinks</h3>
+ <div class="">
+    <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Ingredients</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let drink of drinks">
+                    <td>{{ drink?.name }}</td>
+                    <td>{{ drink?.price  | currency }}</td>
+                    <td>  
+                       <div class="container">
+                        <div class="row" *ngFor="let ingredient of drink.ingredients">
+                          <div class="col-md-4">
+                            <div><strong>Name:</strong> {{ ingredient?.name }}</div>
+                          </div>
+                          <div class="col-md-4">
+                            <div><strong>Quantity:</strong> {{ ingredient?.quantity }}</div>
+                          </div>
+                          <div class="col-md-4">
+                            <div><strong>Unit Cost:</strong> {{ ingredient?.unitCost | currency }}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>                     
+                       <nav>
+                         <a [routerLink]="['/edit-drink']" [state]="{drink}">Edit Drink</a>
+                       </nav>                    
+                    </td>                    
+                    <td>
+                      <div class="col-md-4 text-md-end">
+                        <button type="button" class="btn btn-danger" (click)="onDelete(drink.id)">Delete Drink</button>
+                      </div>
+                    </td>                     
+                </tr>
+            </tbody>
+    </table>       
+</div>

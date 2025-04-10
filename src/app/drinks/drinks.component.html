@@ -1,0 +1,31 @@
+<div *ngIf="!drinks">
+    <h3>loading!</h3>
+</div>
+<div *ngIf="drinks"> 
+    <h3>Please Make a Selection</h3>
+    <div class="">
+        <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Order</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let drink of drinks">
+                        <td>{{ drink?.name }}</td>
+                        <td>{{ drink?.price  | currency }}</td>
+                        <td>                               
+                        <input btn type="button" value="{{drink.name}}" class="btn btn-default btn-primary" 
+                                (click)="selectDrink(drink);"/> 
+                        </td>
+                    </tr>
+                </tbody>
+        </table>       
+            <div>
+                <ng-template appMessage></ng-template>
+            </div>   
+    </div>
+</div>
+   
