@@ -6,6 +6,8 @@ I used it to learn and practice technologies like AngularJS and then Angular.io.
 
 This Angular version uses a .NET backend WebAPI and Sql Server. It uses template forms and reactive forms in various components. It uses RxJS to communicate with the back end.
 
+Run npm install to install the node packages.
+
 The backend can be found in this repository:
 https://github.com/dougbean/StarboxNet8CoreApiEF
 
