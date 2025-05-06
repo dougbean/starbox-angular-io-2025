@@ -55,7 +55,7 @@ export class AddDrinkComponent implements OnInit {
   }
 
   // Remove a control group from the FormArray
-  removeIngredientControlGroup(index: number) {   
+  removeIngredientControlGroup(index: number) {      
     this.ingredients.removeAt(index);
   }
   
@@ -96,6 +96,9 @@ export class AddDrinkComponent implements OnInit {
     this.drinksService.addDrink(drink).subscribe({
       next: () => {
         this.toastrService.success('drink was added');
+        //reset form
+        this.drinkForm.reset();       
+        this.drinkForm.setControl('ingredients', this.formBuilder.array([]));                     
       },
       error: (err) => {
         console.error('Error adding an ingredient:', err);
