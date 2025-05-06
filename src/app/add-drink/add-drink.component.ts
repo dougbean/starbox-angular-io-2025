@@ -30,7 +30,7 @@ export class AddDrinkComponent implements OnInit {
   }
   
   getIngredientsFromApi(): void {
-    var observable =  this.ingredientService.getIngredients()
+    const observable =  this.ingredientService.getIngredients()
               .subscribe(ingredients => this.ingredientList = ingredients); 
   }     
   
@@ -69,7 +69,7 @@ export class AddDrinkComponent implements OnInit {
       this.message = "";      
     }    
 
-    var invalidSection = Utils.isIngredientSelectionValid(drink);
+    const invalidSection = Utils.isIngredientSelectionValid(drink);
     if(invalidSection){
       this.message = "You have an invalid ingredient selection."
       return 
@@ -77,7 +77,7 @@ export class AddDrinkComponent implements OnInit {
       this.message = "";       
     } 
     
-    var hasDuplicates = Utils.checkIngredientsForDuplicates(drink);
+    const hasDuplicates = Utils.checkIngredientsForDuplicates(drink);
     if(hasDuplicates){
       this.message = "You have a duplicate ingredient selection. Please change one."
     }else{
@@ -87,7 +87,7 @@ export class AddDrinkComponent implements OnInit {
   }
 
   private GetDrinkObjectFromForm() {
-    var json = JSON.stringify(this.drinkForm.value);
+    const json = JSON.stringify(this.drinkForm.value);
     const drink = JSON.parse(json);
     return drink;
   }
@@ -106,7 +106,7 @@ export class AddDrinkComponent implements OnInit {
 
   onOptionsSelected(event: Event): void {   
     const drink = this.GetDrinkObjectFromForm();  
-    var hasDuplicates = Utils.checkIngredientsForDuplicates(drink);
+    const hasDuplicates = Utils.checkIngredientsForDuplicates(drink);
     if(hasDuplicates){
       this.message = "You have a duplicate ingredient selection. Please change one."
     }else{

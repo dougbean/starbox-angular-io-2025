@@ -35,7 +35,7 @@ export class EditDrinkComponent implements OnInit {
   }
 
   getIngredientsFromApi(): void {
-    var observable =  this.ingredientService.getIngredients()
+    const observable =  this.ingredientService.getIngredients()
               .subscribe(ingredients => this.ingredientList = ingredients); 
    }   
 
@@ -48,7 +48,7 @@ export class EditDrinkComponent implements OnInit {
   }
 
   private initializeIngredientControlArray() {
-    for (var i = 0; i < this.selectedDrink.ingredients.length; i++) {
+    for (let i = 0; i < this.selectedDrink.ingredients.length; i++) {
       const controlGroup = this.formBuilder.group({
         name: [this.selectedDrink.ingredients[i].name],       
         quantity: [this.selectedDrink.ingredients[i].quantity],
@@ -89,7 +89,7 @@ export class EditDrinkComponent implements OnInit {
       this.message = "";      
     }    
 
-    var invalidSection = Utils.isIngredientSelectionValid(drink);
+    const invalidSection = Utils.isIngredientSelectionValid(drink);
     if(invalidSection){
       this.message = "You have an invalid ingredient selection."
       return 
@@ -97,7 +97,7 @@ export class EditDrinkComponent implements OnInit {
       this.message = "";       
     } 
         
-    var hasDuplicates = Utils.checkIngredientsForDuplicates(drink);
+    const hasDuplicates = Utils.checkIngredientsForDuplicates(drink);
     if(hasDuplicates){
       this.message = "You have a duplicate ingredient selection. Please change one."
     }else{
@@ -119,14 +119,14 @@ export class EditDrinkComponent implements OnInit {
   }
 
   private GetDrinkObjectFromForm() {
-    var json = JSON.stringify(this.drinkForm.value);
+    const json = JSON.stringify(this.drinkForm.value);
     const drink = JSON.parse(json);
     return drink;
   }
 
   onOptionsSelected(event: Event): void {       
     const drink = this.GetDrinkObjectFromForm();            
-    var hasDuplicates = Utils.checkIngredientsForDuplicates(drink);
+    const hasDuplicates = Utils.checkIngredientsForDuplicates(drink);
     if(hasDuplicates){
         this.message = "You have a duplicate ingredient selection. Please change one."
     }else{

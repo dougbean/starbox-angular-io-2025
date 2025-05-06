@@ -18,7 +18,7 @@ export default abstract class Utils {
 	}
 
 	public static isIngredientSelectionValid(drink: any) {
-		var invalidSection = false;
+		let invalidSection = false;
 		drink.ingredients.forEach(function (item: { id: number; }) {
 		  if (Number(item.id) === 0) {
 			invalidSection = true;
@@ -28,8 +28,8 @@ export default abstract class Utils {
 	  }	
 
 	  public static checkIngredientsForDuplicates(drink: any) {
-		var hasDuplicates = false;
-		var dupes = this.GetDuplicatedIngredients(drink);
+		let hasDuplicates = false;
+		let dupes = this.GetDuplicatedIngredients(drink);
 
 		const isEmpty = dupes.length === 0; // true
 		if (!isEmpty) {

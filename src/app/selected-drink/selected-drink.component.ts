@@ -21,17 +21,17 @@ export class SelectedDrinkComponent implements OnInit {
   }
     
   getDrink(id: number): void {     
-    var observable = this.drinkService.getDrink(id)
+    const observable = this.drinkService.getDrink(id)
       .subscribe(drink => this.drink = drink);      
   }
 
   getMessage(){    
-    var message = '';
+    let message = '';
     //console.log(JSON.stringify(this.drink));
     if(this.drink.id > 0) {
        message = 'Thank you! Please enjoy your ' + this.drink.name + '!';
     }else{      
-      var oneDrink = this.drinkList.filter(aDrink => aDrink.id == this.selectedDrink.id);
+      let oneDrink = this.drinkList.filter(aDrink => aDrink.id == this.selectedDrink.id);
       message = 'Sorry, we are temporarily unable to dispense ' 
                 + oneDrink[0].name + '.  Please make another selection.';
     }

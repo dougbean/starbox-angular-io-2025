@@ -25,7 +25,7 @@ export class DrinksComponent implements OnInit {
   }
 
   getDrinks(): void {
-    var observable =  this.drinksService.getDrinks().subscribe(drinks => this.drinks = drinks);     
+    const observable =  this.drinksService.getDrinks().subscribe(drinks => this.drinks = drinks);     
    }
   
   selectDrink(selection: Drink): void {   
