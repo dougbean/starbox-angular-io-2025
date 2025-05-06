@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Ingredient } from '../model/ingredient';
 import { IngredientsService } from '../services/ingredients.service';
 import { ToastrService } from '../services/toastr.service';
@@ -10,6 +11,7 @@ import { ToastrService } from '../services/toastr.service';
 })
 export class AddIngredientComponent {
   ingredient: Ingredient = new Ingredient();
+  @ViewChild('ingredientForm') form!: NgForm;
 
   constructor(private ingredientService:IngredientsService, private toastrService:ToastrService) {}
 
@@ -17,6 +19,7 @@ export class AddIngredientComponent {
     this.ingredientService.addIngredient(this.ingredient).subscribe({
       next: () => {                
         this.toastrService.success('ingredient was added');
+        this.form.reset()
       },
       error: (err) => {
         console.error('Error adding an ingredient:', err);
