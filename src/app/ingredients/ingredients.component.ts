@@ -28,14 +28,12 @@ export class IngredientsComponent implements OnInit {
         this.sortIngredientsByName();
     });      
    } 
-
-   //todo: this method sorts by case, so it is not fully working.
-   //todo: consider a fix.
+   
    sortIngredientsByName(): void {
     this.ingredients.sort((a, b) => {
-      if (a.name < b.name) {      
+      if (a.name.toLowerCase() < b.name.toLowerCase()) {      
         return -1;  // a comes before b
-      } else if (a.name > b.name) {        
+      } else if (a.name.toLowerCase() > b.name.toLowerCase()) {        
         return 1;   // b comes before a
       } else {        
         return 0;   // a and b are equal
