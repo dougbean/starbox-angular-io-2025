@@ -29,6 +29,8 @@ export class IngredientsComponent implements OnInit {
     });      
    } 
 
+   //todo: this method sorts by case, so it is not fully working.
+   //todo: consider a fix.
    sortIngredientsByName(): void {
     this.ingredients.sort((a, b) => {
       if (a.name < b.name) {      
