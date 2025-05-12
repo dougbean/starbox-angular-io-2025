@@ -1,15 +1,18 @@
 # StarboxIo2025
 
-This is a front end part of a code challange to build a barista application. It was for developers applying to my previous company.
+This is the front end part of a simple barista or drink dispensing application. It is written with Angular (https://angular.dev/)
 
-I used it to learn and practice technologies like AngularJS and then Angular.io.
+This Angular front end uses a .NET backend WebAPI and Sql Server. It uses template forms and reactive forms in various components. It uses RxJS to communicate with the back end.
 
-This Angular version uses a .NET backend WebAPI and Sql Server. It uses template forms and reactive forms in various components. It uses RxJS to communicate with the back end.
+The backend can be found in this repository: https://github.com/dougbean/StarboxNet8CoreApiEF	
+
+The requirements document is here - https://github.com/dougbean/StarboxNet8CoreApiEF/blob/main/StarboxLibraryNet8EF/Docs/Starbox.pdf
+
+I followed the requirements more or less, though I used .NET for the back end rather than Ruby on Rails or Groovy on Grails.
+
+The requirements document is a code challange presented to job applications of my former employer. I did it to practice and to learn new technologies, such as Angular and React.
 
 Run npm install to install the node packages.
-
-The backend can be found in this repository:
-https://github.com/dougbean/StarboxNet8CoreApiEF
 
 ## Development server
 
